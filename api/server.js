@@ -15,7 +15,7 @@ app.use(
   })
 );
 
-connectDb();
+await connectDb();
 
 const analyticsRouter = require("./src/routes/analytics.routes");
 
