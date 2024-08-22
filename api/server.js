@@ -15,8 +15,8 @@ app.use(
   })
 );
 
-const analyticsRouter = require("./src/routes/analytics.routes");
 connectDb();
+const analyticsRouter = require("./src/routes/analytics.routes");
 
 app.use("/api/v1/analytics", analyticsRouter);
 app.get("/", (req, res) => {
