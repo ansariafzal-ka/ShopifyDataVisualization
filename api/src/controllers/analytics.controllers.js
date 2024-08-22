@@ -6,11 +6,8 @@ const shopifyOrders = db.collection("shopifyOrders");
 const analyticsControllers = {
   test: async (req, res) => {
     try {
-      const testAggregation = await shopifyOrders
-        .aggregate([{ $match: {} }, { $limit: 1 }])
-        .toArray();
-
-      res.status(200).json({ testAggregation });
+      await mongoose.connection.db.command({ ping: 1 });
+      res.status(200).json({ message: "Connection is working" });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
