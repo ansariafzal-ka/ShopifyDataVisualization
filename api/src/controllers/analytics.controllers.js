@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const connectDb = require("../config/database");
+
 const db = mongoose.connection;
 const shopifyCustomers = db.collection("shopifyCustomers");
 const shopifyOrders = db.collection("shopifyOrders");
@@ -7,7 +7,6 @@ const shopifyOrders = db.collection("shopifyOrders");
 const analyticsControllers = {
   test: async (req, res) => {
     try {
-      await connectDb();
       const isConnected = mongoose.connection.readyState === 1;
       if (!isConnected) {
         return res
