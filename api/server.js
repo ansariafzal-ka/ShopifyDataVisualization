@@ -3,10 +3,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const connectDb = require("./src/config/database");
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
+connectDb();
 app.use(
   cors({
     origin: [
@@ -18,7 +15,9 @@ app.use(
   })
 );
 
-connectDb();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 const analyticsRouter = require("./src/routes/analytics.routes");
 
 app.use("/api/v1/analytics", analyticsRouter);
