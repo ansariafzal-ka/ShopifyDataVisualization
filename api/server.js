@@ -19,6 +19,9 @@ connectDb();
 const analyticsRouter = require("./src/routes/analytics.routes");
 
 app.use("/api/v1/analytics", analyticsRouter);
+app.get("/", (req, res) => {
+  res.send("This is a deployment test");
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
