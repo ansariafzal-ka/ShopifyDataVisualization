@@ -101,7 +101,7 @@ const analyticsControllers = {
 
       res.status(200).json({ [`Total Sales (${interval})`]: salesAggregation });
     } catch (error) {
-      res.status(500).json({ error: error });
+      res.status(500).json({ error: error.message });
     }
   },
 
@@ -215,7 +215,7 @@ const analyticsControllers = {
         .status(200)
         .json({ [`Sales Growth Rate (${interval})`]: growthRates });
     } catch (error) {
-      res.status(500).json({ error: error });
+      res.status(500).json({ error: error.message });
     }
   },
 
@@ -313,7 +313,7 @@ const analyticsControllers = {
         .status(200)
         .json({ [`New Customers (${interval})`]: customersAggregation });
     } catch (error) {
-      res.status(500).json({ error: error });
+      res.status(500).json({ error: error.message });
     }
   },
 
@@ -419,7 +419,7 @@ const analyticsControllers = {
           repeatCustomersAggregation,
       });
     } catch (error) {
-      res.status(500).json({ error: error });
+      res.status(500).json({ error: error.message });
     }
   },
 
@@ -451,7 +451,7 @@ const analyticsControllers = {
         .status(200)
         .json({ "Geographical Distribution by City": cityAggregation });
     } catch (error) {
-      res.status(500).json({ error: error });
+      res.status(500).json({ error: error.message });
     }
   },
 
@@ -497,7 +497,7 @@ const analyticsControllers = {
 
       res.status(200).json({ "Customer Lifetime Value by Cohort": cohorts });
     } catch (error) {
-      res.status(500).json({ error: error });
+      res.status(500).json({ error: error.message });
     }
   },
 };
