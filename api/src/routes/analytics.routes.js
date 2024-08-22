@@ -14,4 +14,7 @@ router.get(
   "/customer-lifetime-value",
   analyticsControllers.getCustomerLifetimeValueByCohort
 );
+
+router.get("/test", analyticsControllers.test);
+
 module.exports = router;

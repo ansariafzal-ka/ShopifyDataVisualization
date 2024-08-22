@@ -4,6 +4,18 @@ const shopifyCustomers = db.collection("shopifyCustomers");
 const shopifyOrders = db.collection("shopifyOrders");
 
 const analyticsControllers = {
+  test: async (req, res) => {
+    try {
+      const testAggregation = await shopifyOrders
+        .aggregate([{ $match: {} }, { $limit: 1 }])
+        .toArray();
+
+      res.status(200).json({ testAggregation });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
+
   getAggregateSales: async (req, res) => {
     const { interval } = req.query;
 
