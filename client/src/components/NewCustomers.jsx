@@ -2,7 +2,9 @@ import ChartComponent from "./utils/ChartComponent";
 
 const NewCustomers = ({ interval }) => (
   <ChartComponent
-    dataUrl={`http://localhost:5000/api/v1/analytics/new-customers?interval=${interval}`}
+    dataUrl={`${
+      import.meta.env.VITE_API_URL
+    }/new-customers?interval=${interval}`}
     title={`New Customers (${interval})`}
   />
 );

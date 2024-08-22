@@ -26,7 +26,7 @@ const CustomerLifetimeValueChart = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/v1/analytics/customer-lifetime-value"
+          `${import.meta.env.VITE_API_URL}/customer-lifetime-value`
         );
         const result = await response.json();
         setData(result["Customer Lifetime Value by Cohort"]);
@@ -60,7 +60,6 @@ const CustomerLifetimeValueChart = () => {
 
   const options = {
     responsive: true,
-    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top",
