@@ -94,7 +94,7 @@ const analyticsControllers = {
             $sort: { _id: 1 },
           },
         ])
-        .exec();
+        .toArray();
 
       if (!salesAggregation.length)
         return res.status(400).json({ "error message": "no sales data found" });
