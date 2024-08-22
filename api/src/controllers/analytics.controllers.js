@@ -6,9 +6,9 @@ const shopifyOrders = db.collection("shopifyOrders");
 
 const analyticsControllers = {
   test: async (req, res) => {
-    await connectDb();
     try {
-      const isConnected = mongoose.connection.readyState === 1; // 1 means connected
+      await connectDb();
+      const isConnected = mongoose.connection.readyState === 1;
       if (!isConnected) {
         return res
           .status(500)
