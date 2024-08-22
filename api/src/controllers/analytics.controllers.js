@@ -6,12 +6,12 @@ const shopifyOrders = db.collection("shopifyOrders");
 const analyticsControllers = {
   test: async (req, res) => {
     try {
-      const isConnected = mongoose.connection.readyState === 1; // 1 means connected
-      if (!isConnected) {
-        return res
-          .status(500)
-          .json({ error: "Mongoose connection is not initialized" });
-      }
+      // const isConnected = mongoose.connection.readyState === 1; // 1 means connected
+      // if (!isConnected) {
+      //   return res
+      //     .status(500)
+      //     .json({ error: "Mongoose connection is not initialized" });
+      // }
 
       // res.status(200).json({ message: "Connection is working" });
       res.status(200).json({ uri: process.env.MONGODB_URI });
