@@ -6,8 +6,16 @@ const shopifyOrders = db.collection("shopifyOrders");
 const analyticsControllers = {
   test: async (req, res) => {
     try {
-      await mongoose.connection.db.command({ ping: 1 });
-      res.status(200).json({ message: "Connection is working" });
+      // Ensure mongoose.connection is not undefined
+      if (!mongoose.connection) {
+        return res
+          .status(500)
+          .json({ error: "Mongoose connection is not initialized" });
+      }
+
+      // Test basic command
+      const result = await mongoose.connection.db.command({ ping: 1 });
+      res.status(200).json({ message: "Connection is working", result });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
