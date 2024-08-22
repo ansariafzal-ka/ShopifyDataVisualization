@@ -13,7 +13,8 @@ const analyticsControllers = {
           .json({ error: "Mongoose connection is not initialized" });
       }
 
-      res.status(200).json({ message: "Connection is working" });
+      // res.status(200).json({ message: "Connection is working" });
+      res.status(200).json({ uri: process.env.MONGODB_URI });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
